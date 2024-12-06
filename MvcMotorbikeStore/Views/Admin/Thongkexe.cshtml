@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MvcMotorbikeStore.Models.ThongKeXeViewModel>
+@{
+    ViewBag.Title = "Thongkexe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>THỐNG KÊ SỐ LƯỢNG XE THEO LOẠI XE</h2>
+
+<!-- Thêm Canvas để vẽ biểu đồ -->
+<canvas id="bikeChart" width="400" height="200"></canvas>
+
+<!-- Thêm Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    var labels = []; // Lấy tên loại xe
+    var data = []; // Lấy số lượng xe
+    @foreach(var item in Model)
+            {
+                <Text>
+                    labels.push('@item.TenLoaiXe');
+                    data.push('@item.SoLuongXe')
+                </Text>
+            }
+
+    // Cấu hình biểu đồ
+    var ctx = document.getElementById('bikeChart').getContext('2d');
+    var bookChart = new Chart(ctx, {
+        type: 'bar', // Loại biểu đồ: cột
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Số lượng xe',
+                data: data,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+

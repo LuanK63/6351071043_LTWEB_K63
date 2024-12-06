@@ -1,0 +1,45 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: right;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3> THÔNG TIN CHI TIẾT XE</h3>
+<div>
+    <div style="width:40%; float:left; border-left: dotted 1px; border-color:azure">
+        <img src="~/hinhsanpham/@Model.Anhbia" width="100%" />
+    </div>
+    <div style="width:60%; float:left; padding:10px">
+        <h4 style="font-weight:bold; color:red">Tên xe: @Model.TenXe </h4>
+        <p style="text-align:justify"><span style="font-weight:bold"> Mô tả: </span>@Model.Mota </p>
+        <p style="font-weight:bold"> Giá bán: <span style="color:red; font-size:16pt "> @Model.Giaban VND </span></p>
+    </div>
+    <div id="Datmua" style="float:right;padding:30px">
+        <a href="@Url.Action("ThemGiohang", "GioHang", new { @iMaXe = Model.MaXe, @strURL = Request.Url.ToString() })" style="background: red; padding: 20px; font-size: 20px">
+            Đặt mua
+        </a>
+    </div>
+</div>
+</div>

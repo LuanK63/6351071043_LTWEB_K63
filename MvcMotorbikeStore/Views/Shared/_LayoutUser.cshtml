@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Online Motorbike Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+    <div id="wrapper">
+        <div id="inner">
+            <div id="header">
+                <h1><img src="~/images/logo1.png" width="519" height="63" alt="Online Movie Store" /></h1>
+                @*<div id="nav"> <a href="#">HOME</a> | <a href="#">view cart</a> | <a href="#">help</a> </div>*@
+            <div id="nav"> @Html.ActionLink("Home", "Index", "MotorbikeStore", null, new { @class = "current" }) | @Html.Action("GiohangPartial", "GioHang") </div>
+
+                <!-- end nav -->
+                <a href="#"><img src="~/images/postermoto1.png" width="744" height="192"/></a>
+            </div>
+            <!-- end header -->
+            <dl id="browse">
+                @Html.Action("Loaixe", "MotorbikeStore")
+
+                @Html.Action("Nhaphanphoi", "MotorbikeStore")
+            </dl>
+            <div id="body">
+                <div class="inner">
+                    <div>
+                        @RenderBody()
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- end .inner -->
+            </div>
+            <!-- end body -->
+            <div class="clear"></div>
+            <div id="footer">
+                Web design by <a href="http://www.freewebsitetemplates.com">free website templates</a> &nbsp;
+                <div id="footnav"> <a href="#">Legal</a> | <a href="#">Home</a> </div>
+                <!-- end footnav -->
+            </div>
+            <!-- end footer -->
+        </div>
+        <!-- end inner -->
+    </div>
+    <!-- end wrapper -->
+    <div align=center>This template  downloaded form <a href='#'>free website templates</a></div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿﻿@model PagedList.IPagedList<MvcMotorbikeStore.Models.XEGANMAY>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "SPTheoNPP";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h3 style="Text-align:center; color:red"> XE THEO NHÀ PHÂN PHỐI</h3>
+<div class="row">
+    @foreach (var xe in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "MotorbikeStore", new { id = xe.MaXe })">
+                    <img alt="@xe.TenXe" src="~/Hinhsanpham/@xe.Anhbia" width="200" />
+                </a>
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @xe.TenXe
+                    </h4>
+                    <p></p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="cleaner2">&nbsp;</div>
+
+@*Tạo liên kết các trang*@
+<div class="Trang">Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount</div>
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("SPTheoNPP", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+
+    .MenuTrang {
+        clear: both;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .Trang {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>

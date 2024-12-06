@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<MvcMotorbikeStore.Models.NHAPHANPHOI>
+<dt>NHÀ PHÂN PHỐI</dt>
+@foreach (var item in Model)
+{
+    <dd>
+        <a href="@Url.Action("SPTheoNPP", "MotorbikeStore", new { id = item. MaNPP})">
+            @item.TenNPP
+        </a>
+    </dd>
+}
+
